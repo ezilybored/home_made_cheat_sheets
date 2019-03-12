@@ -223,3 +223,52 @@ console.log(array3.map( (val, pos) =>  val * pos )) // Retunrs [0, 1, 178, 87, 2
 // This is a function that reduces all of the values in an array to a single value
 // The first argument is the accumulator, the second the value and the third the position
 console.log(array3.reduce((acc, val) => acc + val)) // Returns 195
+
+// Array.prototype.foreach()
+// This loops over each value and does something ( a bit like map)
+array3.forEach( val => console.log(val) ) // Returns each vale from the array on a new line
+array3.forEach( val => console.log(val + 5) ) // Returns each vale from the array on a new line + 5
+
+// for loops (2 types)
+for (let v of array3){
+    console.log(v) // Logs every item in the array again
+}
+
+for (let i = 0; i < array3.length; i++){
+    console.log(array3[i]) // Logs every item in the array again
+}
+
+// Adding to arrays
+array3.push('banana')
+console.log(array3) // Returns [1, 1, 89, 29, 62, 13, "banana"]
+
+array3.unshift('apple')
+console.log(array3) // Returns ["apple", 1, 1, 89, 29, 62, 13, "banana"]
+
+// Removing from arrays
+array3.pop('banana')
+console.log(array3) // Returns [1, 1, 89, 29, 62, 13]
+
+array3.shift('apple')
+console.log(array3) // Returns [1, 1, 89, 29, 62, 13]
+
+// Splice allows more precision. Arguments set the value to start removing from and the number to remove
+array3.splice(0, 2)
+console.log(array3) // Returns [89, 29, 62, 13]
+array3.splice(2, 1)
+console.log(array3) // Returns [89, 29, 13]
+// This can also add values in at the position of the splice, in this case 1, 1 are added at position 0
+array3.splice(0, 0, 1, 1)
+console.log(array3) // Returns [1, 1, 89, 29, 13]
+array3.splice(4, 0, 62)
+console.log(array3) // Returns [1, 1, 89, 29, 62, 13]
+
+// Join arrays using concat.
+// firstArray.concat(secondArray)
+console.log(array1.concat(array3))
+
+// Finding values
+console.log(array3.indexOf(62)) // Returns 4
+
+// Check if an array contains a value
+console.log(array3.includes(62)) // Returns true
