@@ -282,3 +282,18 @@ console.log(animals.slice(1, 5)); // expected output: Array ["bison", "camel", "
 // Sorting an array using sort(). Sorts by converting to strings and using UTF-16 code units values
 console.log(animals.sort())
 // A compare function can also be added. The first argument is the first element for comparison, the second argument is the second element for comparison
+// The below comapres each value to the next one and returns it to the array depending on if it is bigger, smaller or the same
+console.log(animals.sort((a, b) => {if(a < b) { return -1 } if(a > b) { return +1 } else {return 0} }))
+
+// Reverse the array order
+console.log(animals.reverse())
+
+//Joining an array with join() The arguments set the separator
+console.log(animals.join()) // ant,bison,camel,duck,elephant
+console.log(animals.join(', ')) // ant, bison, camel, duck, elephant
+// Can also use toString()
+console.log(animals.toString())
+
+// Copy an array using the rest operator
+const bnimals = [...animals]
+console.log(bnimals)
