@@ -156,3 +156,22 @@ const doSomethingAmazing = (a, b) => {
     return doSomethingExtra(a, b) + a + b
 }
 console.log(doSomethingAmazing(2, 5))
+
+// When functions are run within objects they are called methods
+// They cannot be run using arrow notation
+let car = {
+  brand: "Nissan",
+  model: 'Micra',
+  started: function() {
+      return `Started ${this.brand} ${this.model}`
+    }
+};
+console.log(car.started()) // Returns "Started Nissan Micra"
+
+// IIFE is an immediately run function
+// The arguments are passed in the brackets after the function and the whole function is placed in brackets. The result can be stored in a variable
+const fruit = ((a, b) => {
+    return a + b
+})('apple', 'banana')
+
+console.log(fruit)
