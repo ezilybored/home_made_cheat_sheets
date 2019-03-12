@@ -96,6 +96,51 @@ function myFunction(input) {
   }
 }
 
+
+// ES6 Functions
+// sum is the variable to store the return. a and b are arguments
+const sum = (a, b) => {
+    return a + b
+}
+console.log(sum(2, 3))
+
+// Alternative ES5 version
+function summed(a, b) {
+    return a + b
+}
+console.log(summed(2, 3))
+
+// Default values can be passed for arguments
+const doSomething = (foo = 1, bar = 'hey') => {
+    console.log(foo + bar)
+}
+doSomething(2, 'ho!') // Logs 2ho!
+doSomething() // Logs 1hey
+
+// Arguments can be passed in via an object
+const doSomethingElse = ({foo = 1, bar = 'hey'}) => {
+    console.log(foo)
+    console.log(bar)
+}
+const args = { foo: 2, bar: 'ho!' }
+doSomethingElse(args) // Logs 2 ho!
+const args2 = { foo: 'happy', bar: 'birthday' }
+doSomethingElse(args2) // Logs happy birthday
+
+// When the return keyword is met the function is terminated and any value is returned.
+// Only one value can be returned.
+// If more than one is required then an array or object can be returned and destructured when calling the function
+
+const doSomethingNew = () => {
+    // This function returns an object with the name and age keys
+    return { name: 'Captain', age: 198 }
+}
+// Assigns the values of name and age using the values assigned to these keys in the returned object
+const { name, age } = doSomethingNew()
+console.log(name) // Logs Captain
+console.log(age) // Logs 198
+// This can also be done identically with an array
+
 console.log(myFunction("")) // Input is empty
 console.log(myFunction('abc')) // Input is not a number
 console.log(myFunction(30)) // Input is too high
