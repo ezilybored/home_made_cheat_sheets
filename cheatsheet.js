@@ -175,3 +175,51 @@ const fruit = ((a, b) => {
 })('apple', 'banana')
 
 console.log(fruit)
+
+
+// Arrays
+// Initialise. (Don't use the other method)
+const a = []
+// Initialise a 6 value array all of value 1
+const b = Array(6).fill(1)
+console.log(b) // Logs [1,1,1,1,1,1]
+
+// Find the length of an array
+const len = b.length
+console.log(len) // Logs 6
+
+// Array.prototype.every()
+// Used to check if every value in an array meets a condition
+var array1 = [1, 30, 39, 29, 10, 13];
+// Checks if every value is below 40. Iterates through the array passing each value into the function as val
+console.log(array1.every((val) => { return val < 40 })); // Returns true
+
+// Array.prototype.some()
+// Used to check if some values in an array meet a condition
+var array2 = [1, 30, 89, 29, 62, 13];
+// Checks if some of the values are below 40. Iterates through the array passing each value into the function as val
+console.log(array2.some((val) => { return val < 40 })); // Returns true
+
+// Array.prototype.filter()
+// Used to check if values in an array meet a condition. Returns a new array of these values
+var array3 = [1, 1, 89, 29, 62, 13];
+// Checks if some of the values are below 40. Iterates through the array passing each value into the function as val
+console.log(array3.filter((val) => val < 40 )); // Returns [1, 30, 29, 13]
+// filter can take other arguments. The second argument is the current position in the array
+// This filter compares the value to the position and only returns if they are the same
+console.log(array3.filter((val, pos) => val == pos )); // Returns [1]
+
+// Array.prototype.map()
+// Used to apply a function to every value in the array
+// This map multiplies every value in the array by 2
+console.log(array3.map( val =>  val * 2 )) // Returns [2, 2, 178, 58, 124, 26]
+// Can combine map and filter. This doubles each value and then only returns those below 40
+console.log(array3.map( val =>  val * 2 ).filter((val) => val < 40 )) // Returns [2, 2, 26]
+// map can also take other arguments. The second argument is the current position in the array
+// This example multiplies the value by the position
+console.log(array3.map( (val, pos) =>  val * pos )) // Retunrs [0, 1, 178, 87, 248, 65]
+
+// Array.prototype.reduce()
+// This is a function that reduces all of the values in an array to a single value
+// The first argument is the accumulator, the second the value and the third the position
+console.log(array3.reduce((acc, val) => acc + val)) // Returns 195
