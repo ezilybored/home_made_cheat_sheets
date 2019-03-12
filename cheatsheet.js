@@ -272,3 +272,13 @@ console.log(array3.indexOf(62)) // Returns 4
 
 // Check if an array contains a value
 console.log(array3.includes(62)) // Returns true
+
+// Cutting an array down using slice() Arguments are start and end elements
+var animals = ['elephant', 'bison', 'duck', 'camel', 'ant'];
+console.log(animals.slice(2)); // expected output: Array ["camel", "duck", "elephant"]
+console.log(animals.slice(2, 4)); // expected output: Array ["camel", "duck"]
+console.log(animals.slice(1, 5)); // expected output: Array ["bison", "camel", "duck", "elephant"]
+
+// Sorting an array using sort(). Sorts by converting to strings and using UTF-16 code units values
+console.log(animals.sort())
+// A compare function can also be added. The first argument is the first element for comparison, the second argument is the second element for comparison
