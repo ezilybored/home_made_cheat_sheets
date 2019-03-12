@@ -53,3 +53,25 @@ class Woofer extends Dog {
 
 const zu = new Woofer('Zu')
 console.log(zu.hello())
+
+// Getters and Setters
+class Cat {
+  constructor(name) {
+    this._name = name;
+  }
+  // getter is used to retrieve the attribute
+  get name(){
+    return this._name;
+  }
+  // setter is used to re-set the attribute to a new value
+  set name(newName){
+    this._name = newName;
+  }
+}
+// Initialises the class
+const zombie = new Cat('zombie');
+console.log(zombie.name);
+// Sets the new name
+zombie.name = 'FuzzFace';
+// Gets the new name
+console.log(zombie.name);
