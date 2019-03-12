@@ -23,6 +23,7 @@ const cats = []
 console.log(cats)
 console.log(cats.__proto__)
 
+
 // Classes
 // Creates a class called Dog
 class Dog {
@@ -75,3 +76,27 @@ console.log(zombie.name);
 zombie.name = 'FuzzFace';
 // Gets the new name
 console.log(zombie.name);
+
+
+// Exceptions
+// These are used to catch errors. They consist of the try, catch and throw keywords
+function myFunction(input) {
+  console.log(input)
+  // The following lines of code will be tried. If failing they will throw the followed error message
+  try { 
+    if(input == "")  throw "empty";
+    if(isNaN(input)) throw "not a number";
+    input = Number(input);
+    if(input < 5)  throw "too low";
+    if(input > 10)   throw "too high";
+  }
+  // If an error is thrown then the error is appended onto the output message
+  catch(err) {
+    return "Input is " + err
+  }
+}
+
+console.log(myFunction("")) // Input is empty
+console.log(myFunction('abc')) // Input is not a number
+console.log(myFunction(30)) // Input is too high
+console.log(myFunction(2)) // Input is too low
