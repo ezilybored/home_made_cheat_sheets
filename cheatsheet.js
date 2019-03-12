@@ -96,6 +96,11 @@ function myFunction(input) {
   }
 }
 
+console.log(myFunction("")) // Input is empty
+console.log(myFunction('abc')) // Input is not a number
+console.log(myFunction(30)) // Input is too high
+console.log(myFunction(2)) // Input is too low
+
 
 // ES6 Functions
 // sum is the variable to store the return. a and b are arguments
@@ -141,7 +146,13 @@ console.log(name) // Logs Captain
 console.log(age) // Logs 198
 // This can also be done identically with an array
 
-console.log(myFunction("")) // Input is empty
-console.log(myFunction('abc')) // Input is not a number
-console.log(myFunction(30)) // Input is too high
-console.log(myFunction(2)) // Input is too low
+// Nested functions can be used to run function within functions
+const doSomethingAmazing = (a, b) => {
+    // Reuns a second function with the same arguments passed in
+    const doSomethingExtra = (a, b) => {
+        return a * b
+    }
+    // Returns the value of doSomethingExtra plus the value of a plus the value of b
+    return doSomethingExtra(a, b) + a + b
+}
+console.log(doSomethingAmazing(2, 5))
