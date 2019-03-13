@@ -435,3 +435,10 @@ async function getTop100Campers() {
         alert(err) // Or some other error logging system
     }
 }
+
+
+// Timers and delays
+// The time (in milliseconds) is placed after the function but inside the brackets
+setTimeout(() => { console.log('runs after 2 seconds')}, 2000)
+// An alternative repeats infinitely every time the set interval elapses
+setInterval(() => { console.log('runs all the time')}, 2000)
