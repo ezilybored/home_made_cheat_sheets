@@ -297,3 +297,101 @@ console.log(animals.toString())
 // Copy an array using the rest operator
 const bnimals = [...animals]
 console.log(bnimals)
+
+// Events
+// Event handlers are used to respond to events 
+// These can be added when the DOM has loaded
+window.onload = () => {
+    //window loaded
+}
+
+// They can be added inline but this is rarely used these days
+<a href="site.com" onclick="someFunction();">A link</a>
+
+// They can be added using addEventListener(). This is the most common way to do this
+// This example adds the listener when the DOM has loaded
+window.addEventListener('load', () => {
+    // window loaded
+})
+// This example adds a listener to a link that watches for a click event
+// The first parameter is always the event to listen for
+const link = document.getElementById('my-link')
+link.addEventListener('click', event => {
+    // Link clicked
+})
+// This creates an Event object with many retrievable properties.
+// https://developer.mozilla.org/en-US/docs/Web/API/Event
+// Several event listeners can be added to the same object.
+// They can be removed using removeEventListener()
+
+// There are 2 ways of firing events Bubbling fires from the lowermost child and bubbles up to the parent, whereas Capturing fires the outermost first and works its way in.
+// Bubbling is the default and capturing is switched by adding true at the end of the function
+const link = document.getElementById('my-link')
+link.addEventListener('click', event => {
+    // Link clicked
+}, true) // This final true keyword switches to capturing
+
+// Propagation through the DOM can be stopped via stopPropagation()
+const link = document.getElementById('my-link')
+link.addEventListener('click', event => {
+    // Link clicked
+    event.stopPropagation() // Stops the propagation at this DOM level
+}, true)
+
+
+// Asynchronous programming 
+// Callbacks are simple functions passed as arguments to other functions
+window.addEventListener('load', () => {
+    // window loaded
+    // Callback function added here
+})
+
+// Errors are handled by making the first argument an error
+window.addEventListener('load', () => {
+    // window loaded
+    (err, data) => {
+        if (err !== null){
+            // handle the error
+        } else {
+            // process data
+        }
+    }
+})
+
+// The problem with callbacks is that you can end up with a large level of nesting (Callback Hell!)
+
+// Promises
+// A promise is a proxy for a value that will eventually become available
+// Creating a promise
+// Set a value to compare to
+let done = true
+// Create the promise
+const isItDoneYet = new Promise(
+    // The function takes resolve and reject arguments
+    (resolve, reject) => {
+        // Compare to the value of done
+        if (done) {
+            // Set a value to return
+            const workDone = 'Here is the thing I built'
+            // return the value via resolve
+            resolve(workDone)
+        } else {
+            // Set a value to return
+            const why = 'Still working on something else'
+            // return the value via reject
+            reject(why)
+        }
+    }
+)
+
+// Consuming/using a promise
+const checkIfItsDone = () => {
+    isItDoneYet
+        .then((ok) => {
+            console.log(ok)
+        })
+        .catch((err) => {
+            console.error(err)
+        })
+}
+// Running checkIfItsDone() will run the promise and wait for it to be done using the then() callback function. Errors are handled with catch()
