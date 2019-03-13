@@ -415,3 +415,23 @@ function getTop100Campers() {
 }
 
 getTop100Campers();
+
+// Async Await is the simplest most recent way to run asynchronous requests
+// Using the same example as above
+const apiUrl = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
+
+// Asynchronous functions start with the keyword async
+async function getTop100Campers() {
+    // Use try to catch any errors
+    try {
+        // The response from the API is stored as response but the line will not proceed until a response has come from the API
+        const response = await fetch(apiUrl);
+        // The data is processed to json format but the line will not proceed until this process is complete
+        const json = await response.json();
+        // Logs the data
+        console.log(json[0]);
+    // If any errors occur
+    } catch (err) {
+        alert(err) // Or some other error logging system
+    }
+}
