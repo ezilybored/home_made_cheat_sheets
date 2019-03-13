@@ -395,3 +395,23 @@ const checkIfItsDone = () => {
         })
 }
 // Running checkIfItsDone() will run the promise and wait for it to be done using the then() callback function. Errors are handled with catch()
+
+// Functional use of a promise. Getting top 10 users on freeCodeCamp
+// This url no longer works but the example is sound
+const apiUrl = 'https://fcctop100.herokuapp.com/api/fccusers/top/alltime';
+
+function getTop100Campers() {
+    // Runs fetch on apiUrl. This returns a promise
+    fetch(apiUrl)
+    // r is the result. This is converted to json but only when it is returned
+    .then((r) => r.json())
+    // Logs the json data to the console but only when ready
+    .then((json) => {
+        console.log(json[0])
+    // Catches any errors and logs to the console
+    }).catch((error) =>{
+        console.log('failed');
+    });
+}
+
+getTop100Campers();
